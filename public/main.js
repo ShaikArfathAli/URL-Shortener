@@ -52,7 +52,7 @@ async function createShortUrl() {
       throw new Error(data.message || "Failed to create short URL");
     }
   } catch (error) {
-    console.error("Error:", error);
+    console.log("Error:", error);
     showAlert(error.message, "error");
   }
 }
