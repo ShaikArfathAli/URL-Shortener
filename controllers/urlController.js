@@ -68,28 +68,6 @@ exports.clearAllUrls = (req, res) => {
 };
 
 
-
-exports.clearAllUrls = (req, res) => {
-    const sql = "DELETE FROM links"; // Using DELETE instead of TRUNCATE for better error handling
-    db.query(sql, (error, result) => {
-        if (error) {
-            console.error("Error clearing URLs:", error);
-            res.status(500).json({ 
-                status: "notok", 
-                message: "Failed to clear URLs",
-                error: error.message 
-            });
-        } else {
-            res.status(200).json({ 
-                status: "ok", 
-                message: "All URLs cleared successfully",
-                affectedRows: result.affectedRows 
-            });
-        }
-    });
-};
-
-
 exports.deleteUrl = (req, res) => {
     const shorturlid = req.params.shorturlid;
     
@@ -125,3 +103,4 @@ exports.deleteUrl = (req, res) => {
         });
     });
 };
+
